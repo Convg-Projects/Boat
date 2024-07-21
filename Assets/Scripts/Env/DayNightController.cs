@@ -9,6 +9,8 @@ public class DayNightController : MonoBehaviour
 
   public float Speed = 1f;
   [Range(0, 2359)] public float CurrentTime = 1150;
+  [SerializeField] private Light Sun;
+  [SerializeField] private AnimationCurve IntensityOverTime;
 
   private void Awake(){
     if(instance == null){
@@ -26,5 +28,6 @@ public class DayNightController : MonoBehaviour
     }
 
     transform.rotation = Quaternion.Euler(360 * CurrentTime / 2400 - 90, 0f, 0f);
+    Sun.intensity = IntensityOverTime.Evaluate(CurrentTime / 2400);
   }
 }

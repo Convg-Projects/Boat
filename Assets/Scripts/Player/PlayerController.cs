@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
   private CapsuleCollider cCol;
   public Camera Cam;
 
-  private float TimeLeft = 23f;
-
   void Start(){
     RB = GetComponent<Rigidbody>();
     col = GetComponent<Collider>();
